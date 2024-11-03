@@ -48,7 +48,7 @@ color: #4f3829;
   width: 400px;
   height: 400px;
   max-width: 90vmin;
-  background-color: #d4b796; /* Couleur plus sombre pour le fond */
+  background-color: #d4b796; 
   border: 6px solid #baab9f;
   border-radius: 8px;
   display: grid;
@@ -62,14 +62,14 @@ color: #4f3829;
   font-size: 36px;
   font-weight: bold;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  color: rgba(60, 40, 30, 0.85); /* Couleur du texte rappelant le bois foncé */
+  color: rgba(60, 40, 30, 0.85); 
   box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.1), 
               inset 2px 2px 3px rgba(0, 0, 0, 0.2), 
               0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 .tile.merge {
   transform: scale(1.1);
-  background-color: #f9e1b5; /* Une couleur différente pour l'animation */
+  background-color: #f9e1b5; 
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 .game_start_button {
@@ -84,4 +84,4 @@ color: #4f3829;
 button:hover {
   transform: scale(1.1); 
 }
-/* Styles pour la modal */
+

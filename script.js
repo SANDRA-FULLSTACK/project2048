@@ -40,7 +40,7 @@ function addRandomTile() {
 }
 
 function updateBoard() {
-  if (!gameBoard) return; // Sort si gameBoard est null
+  if (!gameBoard) return; 
 
   gameBoard.innerHTML = "";
   for (let row = 0; row < 4; row++) {
@@ -54,11 +54,11 @@ function updateBoard() {
 function createTile(value) {
   const tile = document.createElement("div");
   tile.className = "tile";
-  tile.textContent = value ? value : "";  // Affiche la valeur ou une chaîne vide
+  tile.textContent = value ? value : "";  
   tile.
   
 style.backgroundColor = getTileColor(value);
-  tile.style.backgroundImage = 'url("path/to/wood-texture.jpg")'; // Utilisez une image de texture de bois
+  tile.style.backgroundImage = 'url("path/to/wood-texture.jpg")'; 
   tile.style.backgroundSize = "cover";
   tile.style.borderRadius = "4px";
   tile.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.3)";
@@ -73,10 +73,10 @@ function getTileColor(value) {
 }
 
 function isValidMove(row, col, newRow, newCol) {
-  // Vérifie si la position cible est dans les limites de la grille 4x4
+
   if (newRow < 0 || newRow >= 4 || newCol < 0 || newCol >= 4) return false;
 
-  // Vérifie si la case cible est vide ou a la même valeur que la case d'origine pour permettre la fusion
+
   return board[newRow][newCol] === 0 || board[newRow][newCol] === board[row][col];
 }
 
@@ -88,7 +88,7 @@ function moveTiles(direction) {
     right: (row, col) => ({ newRow: row, newCol: col + 1 })
   };
 
-  // Vérifie si la direction est valide
+
   if (!moveFunctions[direction]) return;
 
   let tileMoved = false;
