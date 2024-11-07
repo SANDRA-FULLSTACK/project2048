@@ -15,6 +15,7 @@ body {
 
 .header {
   display: flex;
+  flex-direction: columns;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px
@@ -23,21 +24,28 @@ body {
 .score_box {
   background-color: #cbb39d;
   border: 1px solid #a58d76;
-  padding: 10px 15px;
+  padding: 8px 13px;
+  display: flex;
+  flex-direction: rowq;
   border-radius: 5px;
 }
-.score_title {
+#
+.score_title
+.record_title {
 display: block;
 color: #4f3829;
+
 }
 
-.score {
+.score 
+.oldScore {
   color: #f3e8d9;
   font-size: 30px;
   display: block;
   font-weight:bold;
   margin-top: 4px;
 }
+
 .title {
   font-size: 60px;
   color: #4f3829;

@@ -1,4 +1,7 @@
+
+
 const scoreEl = document.getElementById("score");
+const recordScore = document.getElementById("record-score");
 const gameBoard = document.getElementById("game-board");
 
 let board = [
@@ -8,13 +11,23 @@ let board = [
   [0, 0, 0, 0]
 ];
 let score = 0;
+let recupScore = 0;
 
 function startGame() {
   resetBoard();
   addRandomTile();
   addRandomTile();
   updateBoard();
+  recupOldRecord(recordScore, recupScore);
 }
+
+function recupOldRecord (scoreEl, score) {
+  
+  if (scoreEl) {
+    scoreEl.innerText = score.toString();
+  };
+}
+
 
 function resetBoard() {
   board = board.map(row => row.map(() => 0));
@@ -24,6 +37,8 @@ function resetBoard() {
     scoreEl.innerText = score.toString();  
   }
 }
+
+
 
 function addRandomTile() {
   const emptyTiles = [];
@@ -60,15 +75,15 @@ function createTile(value) {
 style.backgroundColor = getTileColor(value);
   tile.style.backgroundImage = 'url("path/to/wood-texture.jpg")'; 
   tile.style.backgroundSize = "cover";
-  tile.style.borderRadius = "4px";
-  tile.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.3)";
+  tile.style.borderRadius = "50px";
+  tile.style.boxShadow = "0 2px px rgba(0, 0, 0, 0.3)";
   tile.
   style.color = [2, 4, 8].includes(value) ? "#4c4c4c" : "#f3e8d9";
   return tile;
 }
 
 function getTileColor(value) {
-  const colors = ["rgba(205, 170, 125, 0.9)", "rgba(181, 136, 99, 0.9)", "rgba(159, 120, 92, 0.9)", "rgba(139, 101, 74, 0.9)", "rgba(121, 85, 59, 0.9)", "rgba(101, 68, 41, 0.9)", "rgba(85, 51, 26, 0.9)", "rgba(69, 48, 30, 0.9)", "rgba(59, 42, 25, 0.9)", "rgba(50, 34, 20, 0.9)", "rgba(44, 28, 15, 0.9)", "rgba(35, 20, 10, 0.9)"  ] ;
+  const colors = ["rgba(205, 170, 125, 0.9)", "rgba(181, 136, 99, 0.9)", "rgba(159, 120, 92, 0.9)", "rgba(139, 101, 74, 0.9)", "rgba(121, 85, 59, 0.9)", "rgba(101, 68, 41, 0.9)", "rgba(85, 51, 26, 0.9)", "rgba(69, 48, 30, 0.9)", "rgba(59, 42, 25, 0.9)", "rgba(50, 34, 20, 0.9)", "rgba(44, 28, 15, 0.9)", "rgba(35, 20, 10, 0.9)"] ;
   return value === 0 ? colors[0] : colors[Math.log2(value)] || colors[colors.length - 1];
 }
 
@@ -111,6 +126,10 @@ function moveTiles(direction) {
     updateBoard();
     if (scoreEl) {
       scoreEl.innerText = score.toString();
+    }
+    if (score > recupScore) {
+      recupScore = score;
+      recupOldRecord(recordScore, recupScore);
     }
   }
 }
